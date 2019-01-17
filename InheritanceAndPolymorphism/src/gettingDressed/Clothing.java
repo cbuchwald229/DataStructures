@@ -5,12 +5,14 @@ package gettingDressed;
  *
  */
 public class Clothing {
+	// Setting what all clothing objects should have
 	private String size;
 	private String color;
 	
 	/**
 	 * 
 	 */
+	// Default Constructor
 	public Clothing() {
 		super();
 	}
@@ -19,6 +21,7 @@ public class Clothing {
 	 * @param size
 	 * @param color
 	 */
+	// Constructor with parameters
 	public Clothing(String size, String color) {
 		super();
 		this.size = size;
@@ -42,6 +45,7 @@ public class Clothing {
 	/**
 	 * @return
 	 */
+	// Declaring the getters and setters
 	public String getSize() {
 		return size;
 	}
@@ -67,11 +71,8 @@ public class Clothing {
 		this.color = color;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
-		return "clothing [size=" + size + ", color=" + color + "]";
+		return "Clothing [size=" + size + ", color=" + color + ", instructions=" + wash() + " " + pack() + "]";
 	}
 }

@@ -5,6 +5,7 @@ package basicStuffs;
  *
  */
 public class CanBuchwald {
+	// Aspects of our can we want information on
 	private String company;
 	private String contents;
 	private double size;
@@ -16,6 +17,7 @@ public class CanBuchwald {
 	 * @param size
 	 * @param price
 	 */
+	// Constructor with all parameters
 	public CanBuchwald(String company, String contents, double size, double price) {
 		super();
 		this.company = company;
@@ -27,6 +29,7 @@ public class CanBuchwald {
 	/**
 	 * 
 	 */
+	// Default constructor
 	public CanBuchwald() {
 		super();
 	}
@@ -34,6 +37,7 @@ public class CanBuchwald {
 	/**
 	 * @return
 	 */
+	// Getters and Setters below
 	public String getCompany() {
 		return company;
 	}
@@ -90,6 +94,7 @@ public class CanBuchwald {
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
+	// To string method
 	@Override
 	public String toString() {
 		return "CanBuchwald [company = " + company + ", contents = " + contents + ", size = " + size + ", price = " + price

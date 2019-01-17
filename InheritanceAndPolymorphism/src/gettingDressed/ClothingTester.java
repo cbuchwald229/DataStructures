@@ -12,11 +12,13 @@ public class ClothingTester {
 		// Testing the super class Clothing
 		Clothing dress = new Clothing();
 		Clothing suit = new Clothing("X-Large", "Heathered Gray");
+		// Display current state of objects
 		System.out.println("Clothing 1:" + dress);
-		System.out.println("Clothing 1:" + suit);
+		System.out.println("Clothing 2:" + suit);
 		dress.setSize("Large");
 		dress.setColor("Purple");
+		// Display current state of objects
 		System.out.println("Clothing 1:" + dress);
-		System.out.println("Clothing 1:" + suit);
+		System.out.println("Clothing 2:" + suit);
 	}
 }

@@ -5,10 +5,10 @@ package gettingDressed;
  *
  */
 public class Pant extends Clothing {
-	//For how tall someone's legs are for pants
 	/**
 	 * 
 	 */
+	//For how tall someone's legs are for pants
 	private int length;
 	
 	/**

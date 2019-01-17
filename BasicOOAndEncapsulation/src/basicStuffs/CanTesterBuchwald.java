@@ -8,6 +8,7 @@ public class CanTesterBuchwald {
 	/**
 	 * @param args
 	 */
+	// Testing our Can class in a few different ways
 	public static void main(String[] args) {
 		CanBuchwald DelMonteCreamedCorn = new CanBuchwald();
 		DelMonteCreamedCorn.setCompany("Del Monte");
@@ -17,6 +18,7 @@ public class CanTesterBuchwald {
 		CanBuchwald DelMontePeaches = new CanBuchwald("Del Monte", "Peaches", 29.0, 2.22);
 		CanBuchwald LibbysPumpkin = new CanBuchwald("Libbys", "Pumpkin", 15.0, 2.19);
 		CanBuchwald DelMonteGreenBeans = new CanBuchwald("Del Monte", "Green Beans", 14.5, 0.99);
+		//Printing out the objects
 		System.out.println("Can 1 " + DelMonteCreamedCorn.toString());
 		System.out.println("Can 2 " + DelMontePeaches.toString());
 		System.out.println("Can 3 " + LibbysPumpkin.toString());
