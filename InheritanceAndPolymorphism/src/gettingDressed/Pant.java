@@ -31,14 +31,16 @@ public class Pant extends Clothing {
 	/**
 	 * @return
 	 */
+	// This method is to override the clothing wash method
 	@Override
 	public String wash() {
-		return "Dry clean only";
+		return "Dry clean only.";
 	}
 	
 	/**
 	 * @return
 	 */
+	// New method
 	public String hang() {
 		return "Hang this up.";
 	}
@@ -46,6 +48,7 @@ public class Pant extends Clothing {
 	/**
 	 * @return
 	 */
+	// Declare the getters and setters
 	public int getLength() {
 		return length;
 	}
@@ -60,8 +63,9 @@ public class Pant extends Clothing {
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
+	// Add the length
 	@Override
 	public String toString() {
-		return (super.toString()+ ", length=" + length + "]");
+		return (super.toString()+ ", length=" + length);
 	}
 }

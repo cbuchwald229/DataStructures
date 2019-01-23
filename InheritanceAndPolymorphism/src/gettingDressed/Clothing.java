@@ -53,7 +53,7 @@ public class Clothing {
 	/**
 	 * @param size
 	 */
-	public void setSize(String size) {
+	public void setSize(String size) throws Exception {
 		this.size = size;
 	}
 
@@ -70,9 +70,9 @@ public class Clothing {
 	public void setColor(String color) {
 		this.color = color;
 	}
-
+	// Clothing to string
 	@Override
 	public String toString() {
-		return "Clothing [size=" + size + ", color=" + color + ", instructions=" + wash() + " " + pack() + "]";
+		return "Clothing - size=" + size + ", color=" + color + ", instructions=" + wash() + " " + pack();
 	}
 }
