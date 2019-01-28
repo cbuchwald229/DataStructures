@@ -20,22 +20,22 @@ public class Rectangle implements Measurements {
 	 * @see measurements.Measurements#perimeter()
 	 */
 	@Override
-	public void perimeter() {
+	public String perimeter() {
 		double l = getLength();
 		double w = getWidth();
 		double p = ((2*l)+(2*w));
-		System.out.println("Perimeter: " + p);
+		return ("Perimeter: " + p);
 	}
 	
 	/* (non-Javadoc)
 	 * @see measurements.Measurements#area()
 	 */
 	@Override
-	public void area() {
+	public String area() {
 		double l = getLength();
 		double w = getWidth();
 		double a = l*w;
-		System.out.println("Area: " + a);
+		return ("Area: " + a);
 	}
 	
 	/**

@@ -19,20 +19,20 @@ public class Square implements Measurements {
 	 * @see measurements.Measurements#perimeter()
 	 */
 	@Override
-	public void perimeter() {
+	public String perimeter() {
 		double s = getSides();
 		double p = (4*s);
-		System.out.println("Perimeter: " + p);
+		return ("Perimeter: " + p);
 	}
 
 	/* (non-Javadoc)
 	 * @see measurements.Measurements#area()
 	 */
 	@Override
-	public void area() {
+	public String area() {
 		double s = getSides();
 		double a = s*s;
-		System.out.println("Area: " + a);
+		return ("Area: " + a);
 	}
 
 	/**

@@ -38,8 +38,9 @@ public class MeasurementsTester {
 						System.out.println(e.getMessage());		}
 					if (l > 0 && w > 0)
 					{
-						Sean.perimeter();
-						Sean.area();
+						String p = Sean.perimeter();
+						String a = Sean.area();
+						System.out.println(p + " " + a);
 					} else {
 						System.out.println("Rectangle not made");
 					}
@@ -65,8 +66,9 @@ public class MeasurementsTester {
 				System.out.println(e.getMessage());		}
 			if (s > 0)
 			{
-				Gus.perimeter();
-				Gus.area();
+				String p = Gus.perimeter();
+				String a = Gus.area();
+				System.out.println(p + " " + a);
 			} else {
 				System.out.println("Square not made");
 			}

@@ -8,9 +8,9 @@ public interface Measurements {
 	/**
 	 * 
 	 */
-	public void perimeter();
+	public String perimeter();
 	/**
 	 * 
 	 */
-	public void area();
+	public String area();
 }

@@ -5,8 +5,8 @@ package bicycle;
  *
  */
 abstract class Cycle {
-	public int numberOfTires; //Number of tires on vehicle/cycle
-	public int numberOfFlats; //Number of flats on vehicle/cycle
+	int numberOfTires; //Number of tires on vehicle/cycle
+	int numberOfFlats; //Number of flats on vehicle/cycle
 	
 	/**
 	 * 
