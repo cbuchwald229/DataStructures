@@ -59,11 +59,11 @@ public class Queue {
 		} else {
 			String temp = queArray[front++];
 			// To deal with wraparound
+			queArray[front-1] = "";
+			nItems--;
 			if(front == maxSize) {
 				front = 0;
 			}
-			queArray[front-1] = "";
-			nItems--;
 			return temp;
 		}
 	}
@@ -82,9 +82,9 @@ public class Queue {
 	// True if queue is empty
 	public boolean isEmpty() {
 		if (nItems == 0) {
-			System.out.println("Stack is empty.");
+			System.out.println("Queue is empty.");
 		} else {
-			System.out.println("Stack is not empty.");
+			System.out.println("Queue is not empty.");
 		}
 		return (nItems==0);
 	}
@@ -95,9 +95,9 @@ public class Queue {
 	// True if queue is full
 	public boolean isFull() {
 		if (nItems == maxSize) {
-			System.out.println("Stack is full.");
+			System.out.println("Queue is full.");
 		} else {
-			System.out.println("Stack is not full.");
+			System.out.println("Queue is not full.");
 		}
 		return (nItems==maxSize);
 	}
@@ -114,6 +114,7 @@ public class Queue {
 	/**
 	 * 
 	 */
+	// Take a look at the queue
 	public void print() {
 		System.out.println("Print:");
 		for (int i = 0; i < maxSize; i++) {
