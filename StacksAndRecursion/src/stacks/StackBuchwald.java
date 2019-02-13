@@ -23,16 +23,18 @@ public class StackBuchwald {
 	}
 	
 	// Methods
+
 	/**
 	 * @param item
-	 * @throws Exception 
+	 * @return
+	 * @throws Exception
 	 */
-	public void push(String item) throws Exception {
-		System.out.println("Push");
+	public String push(String item) throws Exception {
 		if (topItem==(maxStackSize-1)) {
 			throw new Exception("This stack is full.");
 		} else {
 			myStack[++topItem] = item;
+			return item;
 		}
 	}
 	
@@ -41,7 +43,6 @@ public class StackBuchwald {
 	 * @throws Exception 
 	 */
 	public String pop() throws Exception {
-		System.out.println("Pop");
 		if (topItem==-1) {
 			throw new Exception("This stack is empty.");
 		} else {
@@ -61,11 +62,6 @@ public class StackBuchwald {
 	 * @return
 	 */
 	public boolean isEmpty() {
-		if (topItem == -1) {
-			System.out.println("Stack is empty.");
-		} else {
-			System.out.println("Stack is not empty.");
-		}
 		return (topItem == -1);
 	}
 	
@@ -74,25 +70,23 @@ public class StackBuchwald {
 	 * @return
 	 */
 	public boolean isFull() {
-		if (topItem == maxStackSize-1) {
-			System.out.println("Stack is full.");
-		} else {
-			System.out.println("Stack is not full.");
-		}
 		return (topItem == maxStackSize-1);
 	}
 	
 	/**
-	 *
+	 * @return
 	 */
-	public void size() {
+	public int size() {
 		int value = topItem + 1;
-		System.out.println("The stack size is: " + value);
+		return value;
 	}
 	
 	/**
 	 * 
 	 */
+	// I know we weren't supposed to use System.out.println. For a print method
+	// and the fact you didn't cross it out, I think maybe it's okay this time...
+	// I will try to avoid in future.
 	public void print() {
 		System.out.println("Print:");
 		for (int i = 0; i <= topItem; i++) {
@@ -115,38 +109,9 @@ public class StackBuchwald {
 		this.maxStackSize = maxStackSize;
 	}
 
-	/**
-	 * @return
-	 */
-	public String[] getMyStack() {
-		return myStack;
-	}
-
-	/**
-	 * @param myStack
-	 */
-	public void setMyStack(String[] myStack) {
-		this.myStack = myStack;
-	}
-
-	/**
-	 * @return
-	 */
-	public int getTopItem() {
-		return topItem;
-	}
-
-	/**
-	 * @param topItem
-	 */
-	public void setTopItem(int topItem) {
-		this.topItem = topItem;
-	}
-
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
-	// May not use this 
 	@Override
 	public String toString() {
 		return "Stack [maxStackSize=" + maxStackSize + ", myStack=" + Arrays.toString(myStack) + ", topItem="
