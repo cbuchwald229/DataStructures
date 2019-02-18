@@ -36,8 +36,9 @@ public class InfixToPostfix {
 	 /**
 	 * @param expression
 	 * @return
+	 * @throws Exception 
 	 */
-	static String infixToPostfix(String expression) 
+	static String infixToPostfix(String expression) throws Exception 
 	 { 
 	     // Initializing empty String for result 
 	     String output = new String(""); 
@@ -77,7 +78,7 @@ public class InfixToPostfix {
 	         } 
 	         else
 	         {
-	        	 System.out.println("The program encountered a character that isn't an operator or operand.");
+	        	 throw new Exception("The program encountered a character that isn't an operator or operand.");
 	         }
 	     } 
 	    
@@ -93,6 +94,10 @@ public class InfixToPostfix {
 	public static void main(String[] args)  
 	{ 
 	    String expression = "a+b*(c/d-e)*(f+g*h)-i"; 
-	    System.out.println(infixToPostfix(expression)); 
+	    try {
+			System.out.println(infixToPostfix(expression));
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} 
 	} 
 }

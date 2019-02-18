@@ -16,87 +16,134 @@ public class QueueTesterBuchwald {
 		Queue theQueue = new Queue(queueSize);
 		
 		//This is a queue. We add and subtract from the queue and print the results intermittently
-		theQueue.print();
+		
+		// Print the empty queue
+		String queuePrint1 = theQueue.print();
+		System.out.println(queuePrint1);
+		
+		// Enqueue dog, cat, and mouse and reprint
 		try {
-			theQueue.enqueue("dog");
+			String animal = theQueue.enqueue("dog");
+			System.out.println("Enqueue " + animal);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		try {
-			theQueue.enqueue("cat");
+			String animal = theQueue.enqueue("cat");
+			System.out.println("Enqueue " + animal);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		try {
-			theQueue.enqueue("mouse");
+			String animal = theQueue.enqueue("mouse");
+			System.out.println("Enqueue " + animal);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		theQueue.print();
+		String queuePrint2 = theQueue.print();
+		System.out.println(queuePrint2);
+		
+		// Enqueue pig and bird and then show queue size
 		try {
-			theQueue.enqueue("pig");
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		try {
-			theQueue.enqueue("bird");
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		theQueue.size();
-		try {
-			theQueue.enqueue("puppy");
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		theQueue.size();
-		try {
-			theQueue.dequeue();
+			String animal = theQueue.enqueue("pig");
+			System.out.println("Enqueue " + animal);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		try {
-			theQueue.dequeue();
+			String animal = theQueue.enqueue("bird");
+			System.out.println("Enqueue " + animal);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		theQueue.print();
-		theQueue.size();
+		int currSize1 = theQueue.size();
+		System.out.println("The queue size is: " + currSize1);
+		
+		// Try to enqueue to a full queue and show size stays the same
 		try {
-			theQueue.dequeue();
+			String animal = theQueue.enqueue("puppy");
+			System.out.println("Enqueue " + animal);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+		int currSize2 = theQueue.size();
+		System.out.println("The queue size is: " + currSize2);
+		
+		// Dequeue dog and cat and reprint and show size
 		try {
-			theQueue.enqueue("duck");
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		theQueue.print();
-		theQueue.peek();
-		try {
-			theQueue.dequeue();
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		try {
-			theQueue.dequeue();
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		theQueue.size();
-		theQueue.isEmpty();
-		theQueue.print();
-		try {
-			theQueue.dequeue();
+			String animal = theQueue.dequeue();
+			System.out.println("Dequeue " + animal);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		try {
-			theQueue.dequeue();
+			String animal = theQueue.dequeue();
+			System.out.println("Dequeue " + animal);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		String queuePrint3 = theQueue.print();
+		System.out.println(queuePrint3);
+		int currSize3 = theQueue.size();
+		System.out.println("The queue size is: " + currSize3);
+		
+		// Dequeue mouse and enqueue duck and print
+		try {
+			String animal = theQueue.dequeue();
+			System.out.println("Dequeue " + animal);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		try {
+			String animal = theQueue.enqueue("duck");
+			System.out.println("Enqueue " + animal);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		String queuePrint4 = theQueue.print();
+		System.out.println(queuePrint4);
+		
+		// Peek at the front of the queue
+		String topAnimal = theQueue.peek();
+		System.out.println("Front of queue: " + topAnimal);
+		
+		//Dequeue pig and bird and print size, ask if it's empty, and reprint queue
+		try {
+			String animal = theQueue.dequeue();
+			System.out.println("Dequeue " + animal);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		try {
+			String animal = theQueue.dequeue();
+			System.out.println("Dequeue " + animal);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		int currSize4 = theQueue.size();
+		System.out.println("The queue size is: " + currSize4);
+		boolean result = theQueue.isEmpty();
+		if(theQueue.isEmpty()) {
+			System.out.println("The queue is empty.");
+		} else {
+			System.out.println("The queue is not empty.");
+		}
+		String queuePrint5 = theQueue.print();
+		System.out.println(queuePrint5);
+		
+		// Dequeue duck and try to dequeue an empty queue
+		try {
+			String animal = theQueue.dequeue();
+			System.out.println("Dequeue " + animal);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		try {
+			String animal = theQueue.dequeue();
+			System.out.println("Dequeue " + animal);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
 }
-// Again, I feel like it's not the most elegant, but it works.
+// I added a few extra steps for testing and left them in.

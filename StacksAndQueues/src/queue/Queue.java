@@ -1,5 +1,7 @@
 package queue;
 
+import java.util.Arrays;
+
 /**
  * @author Christina
  *
@@ -28,13 +30,13 @@ public class Queue {
 	}
 	
 	// Methods
+	// Put item at rear of queue
 	/**
 	 * @param j
-	 * @throws Exception 
+	 * @return
+	 * @throws Exception
 	 */
-	// Put item at rear of queue
-	public void enqueue(String j) throws Exception {
-		System.out.println("Enqueue");
+	public String enqueue(String j) throws Exception {
 		if (nItems==(maxSize)) {
 			throw new Exception("This queue is full.");
 		} else {
@@ -44,6 +46,7 @@ public class Queue {
 			}
 			queArray[++rear] = j;
 			nItems++;
+			return j;
 		}
 	}
 	
@@ -53,7 +56,6 @@ public class Queue {
 	 */
 	// Take item from front of queue
 	public String dequeue() throws Exception {
-		System.out.println("Dequeue");
 		if (nItems==0) {
 			throw new Exception("This queue is empty.");
 		} else {
@@ -72,8 +74,8 @@ public class Queue {
 	 * 
 	 */
 	// Peek at front of queue
-	public void peek() {
-		System.out.println(queArray[front]);
+	public String peek() {
+		return queArray[front];
 	}
 	
 	/**
@@ -81,11 +83,6 @@ public class Queue {
 	 */
 	// True if queue is empty
 	public boolean isEmpty() {
-		if (nItems == 0) {
-			System.out.println("Queue is empty.");
-		} else {
-			System.out.println("Queue is not empty.");
-		}
 		return (nItems==0);
 	}
 	
@@ -94,11 +91,6 @@ public class Queue {
 	 */
 	// True if queue is full
 	public boolean isFull() {
-		if (nItems == maxSize) {
-			System.out.println("Queue is full.");
-		} else {
-			System.out.println("Queue is not full.");
-		}
 		return (nItems==maxSize);
 	}
 	
@@ -106,19 +98,45 @@ public class Queue {
 	 * 
 	 */
 	// Number of items in queue
-	public void size() {
+	public int size() {
 		int value = nItems;
-		System.out.println("The queue size is: " + value);
+		return value;
 	}
 	
 	/**
 	 * 
 	 */
 	// Take a look at the queue
-	public void print() {
-		System.out.println("Print:");
+	public String print() {
+		/*System.out.println("Print:");
 		for (int i = 0; i < maxSize; i++) {
 			System.out.println("-" + queArray[i] + " ");
-		}
+		}*/
+		return toString();
 	}
+
+	// Getter and Setter like Stack class
+	/**
+	 * @return
+	 */
+	public int getMaxSize() {
+		return maxSize;
+	}
+
+	/**
+	 * @param maxSize
+	 */
+	public void setMaxSize(int maxSize) {
+		this.maxSize = maxSize;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Queue " + Arrays.toString(queArray);
+	}
+	
+	
 }
