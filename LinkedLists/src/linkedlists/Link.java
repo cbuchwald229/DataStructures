@@ -8,7 +8,6 @@ import basicStuffs.CanBuchwald;
  */
 public class Link {
 	public CanBuchwald data;
-	public int link;
 	public Link next;
 	
     /**
@@ -16,51 +15,41 @@ public class Link {
      */
     public Link(CanBuchwald d) {
         data = d;
-        link = -1;
-    }
-	
-    /**
-     * @param d
-     * @param l
-     */
-    public Link(CanBuchwald d, int l) {
-        data = d;
-        link = l;
-    }
-    
-    /**
-     * @return
-     */
-    public CanBuchwald getData() {
-        return data;
     }
 
-    /**
-     * @param d
-     */
-    public void setData(CanBuchwald d) {
-    	data = d;
-    }
+	/**
+	 * @return
+	 */
+	public CanBuchwald getData() {
+		return data;
+	}
 
-    /**
-     * @return
-     */
-    public int getLink() {
-        return link;
-    }
+	/**
+	 * @param data
+	 */
+	public void setData(CanBuchwald data) {
+		this.data = data;
+	}
 
-    /**
-     * @param l
-     */
-    public void setLink(int l) {
-        link = l;
-    }
+	/**
+	 * @return
+	 */
+	public Link getNext() {
+		return next;
+	}
+
+	/**
+	 * @param next
+	 */
+	public void setNext(Link next) {
+		this.next = next;
+	}
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "Link [data=" + data + ", link=" + link + "]";
+		return "Link [data=" + data + ", next=" + next + "]";
 	}
 }

@@ -100,7 +100,7 @@ public class ArrayLinkedList {
             int prev = -1;
             int next=-1;
             for(int i = 0; i < list.length; i++){
-                if(list[i].getData() != null && list[i].getData().getContents().compareTo(s.getContents()) == 0){
+                if(list[i].getData().getContents().compareTo(s.getContents()) == 0){
                 	elementIndex = i;
                     next = list[i].getLink(); 
                     for(int j = 0; j < list.length; j++){
@@ -111,10 +111,11 @@ public class ArrayLinkedList {
                     }
                     list[elementIndex].setDataNull();
                     list[elementIndex].setLink(firstEmpty);
-                    if(next != -1)
+                    if(next != -1) {
                         list[prev].setLink(next);
-                    else
+                    } else {
                         list[prev].setLink(-1);
+                    }
                     size--;
                 }else{
                 	elementIndex++;
@@ -122,9 +123,31 @@ public class ArrayLinkedList {
             }
         }
     }
-    // Alphabetical backwards
-    // If I delete a middle link it orphans a record
-    // Will submit and then resubmit when I fix it
+    
+	/**
+	 * @return
+	 */
+	// True if list is empty
+	public boolean isEmpty(int s) {
+		return (s==0);
+	}
+	
+	/**
+	 * @return
+	 */
+	// Never true
+	public boolean isFull(int s, int m) {
+		return (s==m);
+	}
+	
+	/**
+	 * 
+	 */
+	// Number of items in list
+	public int size() {
+		int value = size;
+		return value;
+	}
 
 	/**
 	 * @return
@@ -164,8 +187,8 @@ public class ArrayLinkedList {
 	/**
 	 * @param size
 	 */
-	public void setSize(int size) {
-		this.size = size;
+	public void setSize(int s) {
+		this.size = s;
 	}
 
 	/**

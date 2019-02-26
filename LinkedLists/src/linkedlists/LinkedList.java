@@ -8,14 +8,18 @@ import basicStuffs.CanBuchwald;
  */
 public class LinkedList {
 	private Link first;
+	private int size;
 	
 	/**
 	 * 
 	 */
+	// Constructor
 	public LinkedList() {
 		first = null;
+		size = 0;
 	}
 	
+	//Methods
 	/**
 	 * @return
 	 */
@@ -31,34 +35,65 @@ public class LinkedList {
 	}
 	
 	/**
-	 * @param can
-	 * @param link
+	 * @param c
+	 * @throws Exception 
 	 */
-	public void insertLink(CanBuchwald can, int link) {
-		Link newLink = new Link(can, link);
-		newLink.next = first;
-		first = newLink;
+	public void insert(CanBuchwald c) throws Exception {
+		if (c != null) {
+			Link newLink = new Link(c);
+			Link previous = null;
+			Link current = first;
+			
+			while (current != null && c.getContents().compareTo(current.getData().getContents()) > 0) {
+				previous = current;
+				current = current.next;
+			}
+			if (previous==null) {
+				first = newLink;
+			} else {
+				previous.next = newLink;
+			}
+			newLink.next = current;
+			size++;
+		} else {
+			throw new Exception("Can is invalid");
+		}
 	}
 	
 	/**
 	 * @return
 	 */
-	public Link deleteLink() {
-		Link temp = first;
-		first = first.next;
-		return temp;
+	// Since remove method was not specified, I'm doing a remove first method
+	public Link delete() throws Exception {
+		if (size != 0) {
+			Link temp = first;
+			first = first.next;
+			size--;
+			return temp;
+		} else {
+			throw new Exception("List is empty");
+		}
 	}
-	
-	// This file is based on the insert and delete first linked list in the book
-	// I still need to add the alphabetical order
-	// My other file does alphabetical backwards and orphans records when deleting
-	// Will submit and then resubmit when I fix it
 
 	/**
 	 * @return
 	 */
 	public Link getFirst() {
 		return first;
+	}
+
+	/**
+	 * @param size
+	 */
+	public void setSize(int size) {
+		this.size = size;
+	}
+
+	/**
+	 * @return
+	 */
+	public int getSize() {
+		return size;
 	}
 
 	/**
@@ -73,6 +108,6 @@ public class LinkedList {
 	 */
 	@Override
 	public String toString() {
-		return "LinkedList [first=" + first + "]";
+		return "LinkedList [first=" + first + ", size=" + size + "]";
 	}
 }

@@ -9,48 +9,89 @@ import basicStuffs.CanBuchwald;
 public class ArrayLinkedListedDriverBuchwald {
     /**
      * @param args
+     * @throws Exception
      */
     public static void main(String[] args) {
     	// Create linked list
-    	int max = 100;
+    	int max = 5;
     	ArrayLinkedList myList  = new ArrayLinkedList(max);
-    	myList.setMaximum(max);
-    	CanBuchwald[] canArray = new CanBuchwald[max];
     	
-    	// Create some cans
-		canArray[0] = new CanBuchwald("Del Monte", "Peaches", 29.0, 2.22);
-		canArray[1] = new CanBuchwald("Libbys", "Pumpkin", 15.0, 2.19);
-		canArray[2] = new CanBuchwald("Del Monte", "Green Beans", 14.5, 0.99);
-		canArray[3] = new CanBuchwald("Del Monte", "Creamed Corn", 14.75, 0.99);
-		canArray[4] = new CanBuchwald("My Brand", "Carrots", 4.50, 10.00);
-
-		//Add cans to linked list
-		for(int i = 0; i < canArray.length; i++) {
-	        try {
-	        	if(canArray[i]!=null ) {
-					myList.insertLink(canArray[i]);
-					System.out.println("Item added");
-	        	} else {
-	        		break;
-	        	}
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-			}
-		}
-        
-		//Delete a can
+    	// Create cans
+    	CanBuchwald DelMontePeaches = new CanBuchwald("Del Monte", "Peaches", 29.0, 2.22);
+    	CanBuchwald LibbysPumpkin = new CanBuchwald("Libbys", "Pumpkin", 15.0, 2.19);
+    	CanBuchwald DelMonteGreenBeans = new CanBuchwald("Del Monte", "Green Beans", 14.5, 0.99);
+    	CanBuchwald DelMonteCreamedCorn = new CanBuchwald("Del Monte", "Creamed Corn", 14.75, 0.99);
+    	CanBuchwald MyBrandCarrots = new CanBuchwald("My Brand", "Carrots", 4.50, 10.00);
+    	
+    	// Insert cans into linked list
 		try {
-			myList.deleteLink(canArray[4]);
-			System.out.println("Item deleted");
+			myList.insertLink(DelMontePeaches);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
-        //Print out what is in the linked list
-        System.out.println("Linked List items: ");
-        for(int i = 0; i < myList.getSize(); i++)
-        {
-            System.out.println("-" + myList.getList()[i].getData());
+		try {
+			myList.insertLink(LibbysPumpkin);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		try {
+			myList.insertLink(DelMonteGreenBeans);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		try {
+			myList.insertLink(DelMonteCreamedCorn);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		try {
+			myList.insertLink(MyBrandCarrots);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+    	
+		//Print out List
+        int i = myList.getStartOfListIndex();
+        System.out.println("Linked List: ");
+        if(myList.getSize()!=0) {
+	        while(myList.getList()[i].getLink()!=-1)
+	        {
+	            System.out.println("-" + myList.getList()[i].getData());
+	            i = myList.getList()[i].getLink();
+	        }
+	        System.out.println("-" + myList.getList()[i].getData());
         }
+        
+        // Delete a valid can
+        try {
+			myList.deleteLink(DelMontePeaches);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+        
+		//Print out List again
+        int j = myList.getStartOfListIndex();
+        System.out.println("Linked List: ");
+        if(myList.getSize()!=0) {
+	        while(myList.getList()[j].getLink()!=-1)
+	        {
+	            System.out.println("-" + myList.getList()[j].getData());
+	            j = myList.getList()[j].getLink();
+	        }
+	        System.out.println("-" + myList.getList()[j].getData());
+        }
+        	
+        // Ask if it's full and empty
+        boolean answer = myList.isEmpty(myList.getSize());
+        System.out.println("Is list empty? " + answer);
+        boolean answer2 = myList.isFull(myList.getSize(), max);
+        System.out.println("Is list full? " + answer2);
+        
+        // Get current size
+        System.out.println("Size: " + myList.getSize());
+        
+        // Well, I got the program to work. The problem now is that if you delete more than one can, the array is now messed up
+        // Having to changed what part of the array they are in and link and get it to iterate correctly proved too difficult for me. LOL.
+        // Hope this one is better than my first.
     }
 }
