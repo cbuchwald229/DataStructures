@@ -10,6 +10,12 @@ public class Node {
 	public String sData;
 	public Node leftChild;
 	public Node rightChild;
+    
+    // Constructor
+    public Node() 
+    { 
+        leftChild = rightChild = null; 
+    }
 	
 	// Display Node
 	/**

@@ -200,13 +200,14 @@ public class Tree {
 	 * @return
 	 */
 	public String preOrder(Node localRoot) {
+		String result = "";
 		if(localRoot != null) {
-			String result = localRoot.iData + " ";
-			preOrder(localRoot.leftChild);
-			preOrder(localRoot.rightChild);
+			result = result + localRoot.iData + " ";
+			result = result + preOrder(localRoot.leftChild);
+			result = result + preOrder(localRoot.rightChild);
 			return result;
 		} else {
-			return "null";
+			return "";
 		}
 	}
 	
@@ -285,5 +286,61 @@ public class Tree {
 		}
 		result = result + "\n........................................................\n";
 		return result;
+	}
+	
+    /* Print nodes at the given level */
+    /**
+     * @param root
+     * @param level
+     * @return
+     */
+    public String printGivenLevel (Node root ,int level) 
+    { 
+    	String stringData = "";
+        if (root == null) {
+            return ""; 
+        }
+        if (level == 1) { 
+        	stringData = stringData + root.iData + " ";
+        } else if (level > 1) { 
+        	stringData = stringData + printGivenLevel(root.leftChild, level-1); 
+        	stringData = stringData + printGivenLevel(root.rightChild, level-1); 
+        } 
+        return stringData;
+    }
+    
+    // Compute the "height" of a tree
+    /**
+     * @param root
+     * @return
+     */
+    public int height(Node root) 
+    { 
+        if (root == null) 
+           return 0; 
+        else
+        { 
+            /* compute  height of each subtree */
+            int lheight = height(root.leftChild); 
+            int rheight = height(root.rightChild); 
+              
+            /* use the larger one */
+            if (lheight > rheight) 
+                return(lheight+1); 
+            else return(rheight+1);  
+        } 
+    } 
+    
+	/**
+	 * @return
+	 */
+	String bfs = "";
+	public String displayBfs() { 
+        int h = height(root); 
+        int i; 
+        for (i = 1; i <= h; i++) {
+            bfs = bfs + printGivenLevel(root, i); 
+        }
+        return bfs;
 	}
 }

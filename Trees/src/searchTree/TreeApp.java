@@ -165,5 +165,18 @@ public class TreeApp {
 		} else {
 			System.out.println("No node found");
 		}
+		
+		Node rootNode = girlsNameTree.find(6);
+		
+		String tree = girlsNameTree.displayTree();
+		System.out.print(tree);
+		
+		// Breadth first search is as search that goes by levels. First the top level, then the next level, and so forth.
+		String bfs = girlsNameTree.displayBfs();
+		System.out.println("Breadth first search: " + bfs);
+		
+		// Depth first goes all the down the tree to an "end" node and then works it's way through branch by branch. I chose preOrder for this one.
+		String dfs = girlsNameTree.preOrder(rootNode);
+		System.out.println("Depth first search via pre-order: " + dfs);
 	}
 }
