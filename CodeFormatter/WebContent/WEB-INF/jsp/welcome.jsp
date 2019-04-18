@@ -16,12 +16,8 @@
 	        </form>
 			<br>
 			<br>
-			<h1>Using POST Method to Read Form Data</h1>
-	        <ul>
-	         <li><p><b>Code:</b>
-	            <%= request.getParameter("code_input")%>
-	         </p></li>
-	        </ul>	 
+			<h1>Formatted Code:</h1>
+	         <p><%= request.getParameter("code_input")%></p>	 
 		</div>
 	</body>
 </html>

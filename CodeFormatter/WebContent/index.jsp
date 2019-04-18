@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Spring MVC Tutorial Series by Crunchify.com</title>
+		<title>Buchwald Code Formatter</title>
 		<style type="text/css">
 			body {
 				background-image: url('https://cdn.crunchify.com/bg.png');
@@ -10,13 +10,8 @@
 	<body>
 		<br>
 		<div style="text-align: center">
-			<h2>
-				Hey You..!! This is your 1st Spring MCV Tutorial..<br> <br>
-			</h2>
-			<h3>
-				<a href="welcome.html">Click here to See Welcome Message... </a>(to
-				check Spring MVC Controller... @RequestMapping("/welcome"))
-			</h3>
+			<h2>Hey You..!! This is my Code Formatter!!!!!<br><br></h2>
+			<h3><a href="welcome.html">Click here to See Code Formatter... </a></h3>
 		</div>
 	</body>
 </html>
