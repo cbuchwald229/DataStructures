@@ -1,4 +1,4 @@
-package buchwaldCodeFormatter;
+package com.codeFormatter.controller;
 
 public class CodeFormatter {
 	public CodeClass codeClass;
