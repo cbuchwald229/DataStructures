@@ -8,16 +8,15 @@ import org.springframework.web.servlet.ModelAndView;
 public class CodeTester {
 	@RequestMapping("/welcome")
 	public ModelAndView helloWorld() {
-		CodeClass catClass = new CodeClass(1, 1, 1, 2, 1, "String breed; ", "public Cat() { super(); }", "public String meow() { System.out.println(\"Meow\"); }",
-				"public String getBreed() { return Breed; } public String setBreed(String Breed) { this.Breed = breed }", 
-				"public String toString() {return \"Cat [breed=\" + breed + \"]\";}");
+		CodeClass catClass = new CodeClass(3, 
+				"public String meow() { System.out.println(\"Meow\"); }  public String hiss() {System.out.println(\"Hiss\"); }  public String chirple() {System.out.println(\"Chirple\"); }");
 		
 		CodeFormatter codeFormatter = new CodeFormatter();
-		
-		String message = codeFormatter.formatConstructors(catClass.constructor, catClass.numberOfConstructors);
+		String message = "";
+		//String message = codeFormatter.formatCode(catClass.items, catClass.numberOfItems);
  
-		message = "<br><div style='text-align:center;'>"
-				+ "<h3>" + message + "</h3></div><br><br>";
+		//message = "<br><div style='text-align:center;'>"
+			//	+ "<h3>" + message + "</h3></div><br><br>";
 		return new ModelAndView("welcome", "message", message);
 	}
 }
