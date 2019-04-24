@@ -8,10 +8,12 @@
 		</style>
 	</head>
 	<body>
+	<form action="welcome" method="post">
 		<br>
 		<div style="text-align: center">
 			<h2>Hey You..!! This is my Code Formatter!!!!!<br><br></h2>
-			<h3><a href="welcome.html">Click here to See Code Formatter... </a></h3>
+			<input type="submit" value="Click here to See Code Formatter..." />
 		</div>
+	</form>
 	</body>
 </html>

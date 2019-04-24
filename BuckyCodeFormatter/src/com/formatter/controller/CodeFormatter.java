@@ -1,14 +1,6 @@
-package com.codeFormatter.controller;
+package com.formatter.controller;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 import java.util.PriorityQueue;
-
-import org.springframework.util.StringUtils;
-
 
 public class CodeFormatter {
 	public CodeClass codeClass;
@@ -19,9 +11,10 @@ public class CodeFormatter {
 	}
 	
 	// Methods	
-	public PriorityQueue<String> formatCode(String inString, int inNumber) {
+	public PriorityQueue<String> formatCode(String inString) {
 		PriorityQueue<String> codeList = new PriorityQueue<>();
 		int codeCount = 0;
+		int inNumber = findNumOfItems(inString);
 		
 	    while(codeCount < inNumber){
 	    	String[] section = splitString(inString);
@@ -50,18 +43,36 @@ public class CodeFormatter {
 		{
 			beginningIndexes.add(index);
 		}
-		
+
 		if(beginningIndexes.size() > 1) {
 			beginningIndexes.remove();
 			int endMethodIndex = beginningIndexes.element();
 			
-			a[0] = ("\n" + (inString.substring(0, endMethodIndex)).trim() + "\n");
-			a[1] = (inString.substring(endMethodIndex)).trim();
+			a[0] = inString.substring(0, endMethodIndex).trim();
+			a[1] = inString.substring(endMethodIndex).trim();
 		} else {			
-			a[0] = ("\n" + (inString).trim() + "\n");
+			a[0] = inString.trim();
 			a[1] = "";
 		}
 		return a;
+	}
+	
+	public int findNumOfItems(String inString) {
+		PriorityQueue<Integer> beginningIndexes = new PriorityQueue<>();
+		
+		for (int index = inString.indexOf("public"); index != -1; index = inString.indexOf("public", index + 1))
+		{
+			beginningIndexes.add(index);
+		}
+		for (int index = inString.indexOf("protected"); index != -1; index = inString.indexOf("protected", index + 1))
+		{
+			beginningIndexes.add(index);
+		}
+		for (int index = inString.indexOf("private"); index != -1; index = inString.indexOf("private", index + 1))
+		{
+			beginningIndexes.add(index);
+		}
+		return beginningIndexes.size();
 	}
 	
 	public PriorityQueue<String> bubbleSort(int nElems, PriorityQueue<String> inElement) {
@@ -90,7 +101,7 @@ public class CodeFormatter {
 	public String myVersionToString(PriorityQueue<String> inQueue, int inNumber) {
 		String myResult = "";
 		for(int i = 0; i < inNumber; i++) {
-			myResult = myResult + inQueue.remove();
+			myResult = myResult + inQueue.remove() + "<br><br>";
 		}
 		return myResult;
 	}
