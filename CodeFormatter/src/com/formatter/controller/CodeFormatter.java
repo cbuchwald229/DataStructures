@@ -10,15 +10,29 @@ import java.util.PriorityQueue;
 import org.springframework.util.StringUtils;
 
 
+/**
+ * @author Christina
+ *
+ */
 public class CodeFormatter {
+	/**
+	 * 
+	 */
 	public CodeClass codeClass;
 	
 	// Constructor
+	/**
+	 * 
+	 */
 	public CodeFormatter() {
 		super();
 	}
 	
 	// Methods	
+	/**
+	 * @param inString
+	 * @return
+	 */
 	public PriorityQueue<String> formatCode(String inString) {
 		PriorityQueue<String> codeList = new PriorityQueue<>();
 		int codeCount = 0;
@@ -35,6 +49,10 @@ public class CodeFormatter {
 		return codeList;
 	}
 	
+	/**
+	 * @param inString
+	 * @return
+	 */
 	public String[] splitString(String inString) {
 		String a[] = new String[2];
 		PriorityQueue<Integer> beginningIndexes = new PriorityQueue<>();
@@ -65,6 +83,10 @@ public class CodeFormatter {
 		return a;
 	}
 	
+	/**
+	 * @param inString
+	 * @return
+	 */
 	public int findNumOfItems(String inString) {
 		PriorityQueue<Integer> beginningIndexes = new PriorityQueue<>();
 		
@@ -83,6 +105,11 @@ public class CodeFormatter {
 		return beginningIndexes.size();
 	}
 	
+	/**
+	 * @param nElems
+	 * @param inElement
+	 * @return
+	 */
 	public PriorityQueue<String> bubbleSort(int nElems, PriorityQueue<String> inElement) {
 		int out, in;
 		PriorityQueue<String> newCodeList = new PriorityQueue<>();
@@ -100,12 +127,22 @@ public class CodeFormatter {
 		return newCodeList;
 	}
 	
+	/**
+	 * @param one
+	 * @param two
+	 * @param inArray
+	 */
 	private void swap(int one, int two, Object[] inArray) {
 		String temp = inArray[one].toString();
 		inArray[one] = inArray[two].toString();
 		inArray[two] = temp;
 	}
 	
+	/**
+	 * @param inQueue
+	 * @param inNumber
+	 * @return
+	 */
 	public String myVersionToString(PriorityQueue<String> inQueue, int inNumber) {
 		String myResult = "";
 		for(int i = 0; i < inNumber; i++) {

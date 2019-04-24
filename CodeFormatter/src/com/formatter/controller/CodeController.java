@@ -8,13 +8,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+/**
+ * @author Christina
+ *
+ */
 public class CodeController {
+	/**
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value="/welcome", method=RequestMethod.POST)
 	public String welcome(Model model) {
 		//System.out.println("Welcome Page Requested");
 		return "welcome";
 	}
 	
+	/**
+	 * @param code_input
+	 * @param map
+	 * @return
+	 */
 	@RequestMapping(value="/format", method=RequestMethod.POST)
 	public String format(@RequestParam("code_input") String code_input, Model map) {
 		//System.out.println("Formatted Page Requested");
