@@ -7,17 +7,13 @@
 			}
 		</style>
 	</head>
-	<body>${message}
+	<body>
+	<form action="format" method="post"></form>
 		<div style="font-family: verdana; padding: 10px; border-radius: 10px; font-size: 12px; text-align: center;">
-	        <form action = "welcome.jsp" method = "POST">
-	         	Code: <input type = "text" name = "code_input">
-	            <br/>
+	         	Code: <textarea name="code_input" rows="20" cols="80"></textarea>
+	         	<br/>
 	            <input type = "submit" value = "Submit" />
-	        </form>
-			<br>
-			<br>
-			<h1>Formatted Code:</h1>
-	         <p><%= request.getParameter("code_input")%></p>	 
-		</div>
+          </div>
+        </form>	 
 	</body>
 </html>

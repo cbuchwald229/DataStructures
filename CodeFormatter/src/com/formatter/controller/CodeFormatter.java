@@ -1,4 +1,4 @@
-package com.codeFormatter.controller;
+package com.formatter.controller;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,9 +19,10 @@ public class CodeFormatter {
 	}
 	
 	// Methods	
-	public PriorityQueue<String> formatCode(String inString, int inNumber) {
+	public PriorityQueue<String> formatCode(String inString) {
 		PriorityQueue<String> codeList = new PriorityQueue<>();
 		int codeCount = 0;
+		int inNumber = findNumOfItems(inString);
 		
 	    while(codeCount < inNumber){
 	    	String[] section = splitString(inString);
@@ -62,6 +63,24 @@ public class CodeFormatter {
 			a[1] = "";
 		}
 		return a;
+	}
+	
+	public int findNumOfItems(String inString) {
+		PriorityQueue<Integer> beginningIndexes = new PriorityQueue<>();
+		
+		for (int index = inString.indexOf("public"); index != -1; index = inString.indexOf("public", index + 1))
+		{
+			beginningIndexes.add(index);
+		}
+		for (int index = inString.indexOf("protected"); index != -1; index = inString.indexOf("protected", index + 1))
+		{
+			beginningIndexes.add(index);
+		}
+		for (int index = inString.indexOf("private"); index != -1; index = inString.indexOf("private", index + 1))
+		{
+			beginningIndexes.add(index);
+		}
+		return beginningIndexes.size();
 	}
 	
 	public PriorityQueue<String> bubbleSort(int nElems, PriorityQueue<String> inElement) {
