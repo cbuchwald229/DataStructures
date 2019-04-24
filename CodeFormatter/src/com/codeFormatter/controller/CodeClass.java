@@ -1,4 +1,4 @@
-package com.formatter.controller;
+package com.codeFormatter.controller;
 
 public class CodeClass {
 	// Properties
